@@ -1,12 +1,20 @@
 pipeline{
     agent any
     tools {
-        maven 'maven'
+        maven 'MAVEN'
     }
     stages {
         stage('Build Maven') {
             steps{
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+	
+	 stage('Build Docker Image') {
+            steps {
+                script {
+                  sh 'docker build -t rajathegde/my-app-1.0 .'
+                }
             }
         }
 	}
