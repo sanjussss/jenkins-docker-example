@@ -13,7 +13,7 @@ pipeline{
 	 stage('Build Docker Image') {
             steps {
                 script {
-                  sh 'docker build -t rajathegde/my-app-1.0 .'
+                  sh 'sudo docker build -t rajathegde/my-app-1.0 .'
                 }
             }
         }
