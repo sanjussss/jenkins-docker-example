@@ -10,12 +10,23 @@ pipeline{
             }
         }
 	
-	 stage('Build Docker Image') {
+	stage('Build Docker Image') {
             steps {
                 script {
                   sh 'docker build -t rajathegde94/my-app-1.0 .'
                 }
             }
+        }	
+	stage('Deploy Docker Image') {
+	   steps {
+			script {
+			withCredentials([string(credentialsId: 'rajathegde94', variable: 'dockercred')]) 		
+			{
+			sh 'docker login -u rajathegde94 -p ${dockercred}'
+			}  
+			sh 'docker push rajathegde94/my-app-1.0'
+                }
+            }
         }
-	}
+    }
 }
