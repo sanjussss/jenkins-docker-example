@@ -20,7 +20,7 @@ pipeline{
 	stage('Deploy Docker Image') {
 	   steps {
 			script {
-			withCredentials([string(credentialsId: 'rajathegde94', variable: 'dockercred')]) 		
+			withCredentials([string(credentialsId: 'sandeshhm', variable: 'dockercred')]) 		
 			{
 			sh 'docker login -u rajathegde94 -p ${dockercred}'
 			}  
