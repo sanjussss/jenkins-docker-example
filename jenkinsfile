@@ -8,7 +8,11 @@ pipeline{
             steps{
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
-        }
+        } 
+	tools {
+         <...>
+               'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
+}
 	
 	stage('Build Docker Image') {
             steps {
