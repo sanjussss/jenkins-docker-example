@@ -21,9 +21,10 @@ pipeline{
 	stage('Deploy Docker Image') {
 	   steps {
 			script {
-			withCredentials([string(credentialsId: 'sandeshhm', variable: 'dockercred')]) 		
+				withCredentials([string(credentialsId: 'sandeshhm', variable: 'dockerhub')]) 
+ 	
 			{
-			sh 'docker login -u sandeshhm -p ${dockercred}'
+			sh 'docker login -u sandeshhm -p ${dockerhub}'
 			}  
 			sh 'docker push sandeshhm/my-app-1.0'
                 }
