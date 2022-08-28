@@ -19,11 +19,7 @@ pipeline{
             }
         }
 	
-	  stage ("Docker Run" ) {
-                steps {
-                    sh ''' docker run -it -d -p 8090:8080 sandeshm/my-app-1.0 '''
-                }
-            }  
+	
 	stage('Deploy Docker Image') {
 	   steps {
 			script {
@@ -37,4 +33,13 @@ pipeline{
             }
         }
     }
-}
+
+ stage ("Docker Run" ) {
+                steps {
+                    sh ''' docker run -it -d -p 8090:8080 sandeshm/my-app-1.0 '''
+                }
+            }  
+	    
+	    
+	    
+}	    
