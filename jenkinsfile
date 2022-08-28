@@ -27,6 +27,7 @@ pipeline{
 			{
 		      
 			sh 'docker login -u sandeshhm -p ${dockerhubpwd}' 
+			sh 'docker pull sandeshhm/my-app-1.0'
                     sh ''' docker run -it -d -p 8090:8080 sandeshm/my-app-1.0 '''
                 }
             } 
