@@ -25,9 +25,8 @@ pipeline{
 				 
  	withCredentials([string(credentialsId: 'sandeshhm', variable: 'dockerhubpwd')])
 			{
-		      {
-			sh 'docker login -u sandeshhm -p ${dockerhubpwd}'
-			}  
+		      
+			sh 'docker login -u sandeshhm -p ${dockerhubpwd}' 
                     sh ''' docker run -it -d -p 8090:8080 sandeshm/my-app-1.0 '''
                 }
             } 
