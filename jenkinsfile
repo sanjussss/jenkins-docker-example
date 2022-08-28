@@ -22,9 +22,9 @@ pipeline{
 	   steps {
 			script {
 				 
- 	withCredentials([string(credentialsId: 'sandeshhm', variable: 'dockerhub')])
+ 	withCredentials([string(credentialsId: 'sandeshhm', variable: 'dockerhubpwd')])
 			{
-			sh 'docker login -u sandeshhm -p ${dockerhub}'
+			sh 'docker login -u sandeshhm -p ${dockerhubpwd}'
 			}  
 			sh 'docker push sandeshhm/my-app-1.0'
                 }
